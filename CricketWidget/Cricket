@@ -1,0 +1,48 @@
+from tkinter import *
+from pycricbuzz import Cricbuzz
+from CricketAPi import Cric
+c = Cricbuzz()
+
+def buttonClick(event):
+    d = int(sel.get())
+    sel.delete(0, "end")
+    root.destroy()
+    Cric(data[d-1])
+    
+    
+    
+root = Tk()
+count = 0
+data = []
+length = c.matches()
+size = len(length)
+for i in range(0,size):
+    iD = length[i]['id']
+    src = length[i]['srs']
+    mat = length[i]['mchdesc']
+    data.append(iD)
+    var = str(i+1) + " : " + " -- " + src +  " " + mat
+    frame = Frame(root)
+    var1 = StringVar()
+    label = Label(frame, textvariable=var1)
+    var1.set(var)   
+    label.pack()
+    frame.pack()
+    
+sel = Entry(root)
+sel.pack()
+
+button = Button(root, text="Enter your Choice")
+button.bind("<Button-1>", buttonClick)
+button.pack()
+root.mainloop()
+
+
+
+
+    
+                  
+
+
+
+
