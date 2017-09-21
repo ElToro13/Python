@@ -1,0 +1,5 @@
+This is a GUI for Live Cricket Scores made with the help of TKinter using Python 3.6.
+When you run it, it pops a small window displaying matches that are in progress or have completed or are yet to begin. Each label will have a numeric digit assigned to it. 
+Enter the literal for chosing a particular match. A new window will pop up displaying scores of selected match. 
+
+Here I have used library of pycricbuzz powered by Cricbuzz. You can download via pip 'pip install pycricbuzz' or simply visit their github repository. TKinter comes preinstalled from python version 3 and above. 
