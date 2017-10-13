@@ -95,6 +95,70 @@ class MatchDetails:
         else:
             return int(2034)
         
+class odds(MatchDetails):
+
+    def __init__(self, Hometeam="", Awayteam="", ffH = 0, ffA =0, h2hH=0, h2hA=0):
+        self.h = Hometeam
+        self.a = Awayteam
+        self.ffH = ffH
+        self.ffA = ffA
+        self.h2hH = h2hH
+        self.h2hA = h2hA
+
+        foo = MatchDetails(self.h, self.a)
+
+        one = foo.hgs()
+        two = foo.agc()
+        three = foo.ohg()
+
+        four = foo.hgc()
+        five = foo.ags()
+        six = foo.oag()
+
+        
+        HTS = ((one/95)*(two/95))/(three/1900)+ self.ffH/15 + self.h2hH/15
+        ATS = ((four/95)*(five/95))/(six/1900) + self.ffA/15 + self.h2hA/15
+
+        dato = []
+        poi = 0
+        for i in range(0,6):
+            poi = ((math.exp(-HTS))*(math.pow(HTS,i)))/(math.factorial(i)) 
+            dato.append(round(poi,4))
+
+        daty = []
+        poy = 0
+        for j in range(0,6):
+            poy = ((math.exp(-ATS))*(math.pow(ATS,j)))/(math.factorial(j))
+            daty.append(round(poy,4))
+
+        print(dato)
+        print(daty)
+
+        HomeScore = dato.index(max(dato))
+        AwayScore = daty.index(max(daty))
+        print(str(HomeScore) + " - " + str(AwayScore))
+
+        HTS = ((one/95)*(two/95))/(three/1900)
+        ATS = ((four/95)*(five/95))/(six/1900) 
+
+        dato = []
+        poi = 0
+        for i in range(0,6):
+            poi = ((math.exp(-HTS))*(math.pow(HTS,i)))/(math.factorial(i)) 
+            dato.append(round(poi,4))
+
+        daty = []
+        poy = 0
+        for j in range(0,6):
+            poy = ((math.exp(-ATS))*(math.pow(ATS,j)))/(math.factorial(j))
+            daty.append(round(poy,4))
+
+        print(dato)
+        print(daty)
+
+        HomeScore = dato.index(max(dato))
+        AwayScore = daty.index(max(daty))
+        print(str(HomeScore) + " - " + str(AwayScore))        
         
         
         
