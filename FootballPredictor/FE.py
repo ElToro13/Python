@@ -1,14 +1,20 @@
 import requests
 import json
-from FootballEurope import *
+
 ff=0
 LID = input('Enter the League ID: 1) EPL 2) La Liga')
 if(int(LID) == 1):
     ff = 1204
+    from FootballEurope import *
+
+    
 elif(int(LID) == 2):
     ff = 1399
+    from LaLiga import *
 else:
     print('Invalid Input')
+
+
 team = requests.get("http://api.football-api.com/2.0/matches?comp_id="+str(ff)+"&from_date=2017-10-13&to_date=2018-06-01&Authorization=565ec012251f932ea4000001fa542ae9d994470e73fdb314a8a56d76")
 data=[]
 team2 = json.loads(team.content)
@@ -28,7 +34,7 @@ for j in range(0,len(data)):
 '''
 GameWeek = input("For which game week you like to predict? // 8-38 ")
 GameWeek = int(GameWeek)-8
-for j in range(GameWeek*10,GameWeek*10+9):
+for j in range(GameWeek*10,GameWeek*10+10):
     print(data[j])
     details = data[j].split('/')
     home = details[1]
@@ -50,6 +56,14 @@ for j in range(GameWeek*10,GameWeek*10+9):
     elif(home == "Celta de Vigo"):
         del home
         home = "Celta Vigo"
+    elif(home == "Leicester"):
+        home = "Leicester City"
+    elif(home == "West Brom"):
+        home = "West Bromwich Albion"
+    elif(home == "West Ham"):
+        home = "West Ham United"
+    elif(home == 'Newcastle Utd'):
+        home = 'Newcastle United'
         
     print(home)
     away = details[2]
@@ -71,6 +85,16 @@ for j in range(GameWeek*10,GameWeek*10+9):
     elif(away == "Celta de Vigo"):
         del away
         away = "Celta Vigo"
+    elif(away == "Leicester"):
+        away = "Leicester City"
+    elif(away == "West Brom"):
+        away = "West Bromwich Albion"
+    elif(away == "West Ham"):
+        away = "West Ham United"
+    elif(away =='Newcastle Utd'):
+        away ='Newcastle United'
+
+        
     print(away)
     odds2 = input('Enter the odds for this game (HomeForm//AwayForm//H2H-Home//H2H-Away)')
     if(len(odds2) == 0):
@@ -93,5 +117,8 @@ for j in range(GameWeek*10,GameWeek*10+9):
             dd = odds(home,away,int(HF),int(AF),int(HH),int(HA))
         except:
             print("Prediction not available.")
+    
+
+
     
 
