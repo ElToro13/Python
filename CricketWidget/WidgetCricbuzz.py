@@ -32,6 +32,21 @@ def scoreb(i):
     Label(root, text="M",bg="#F0B27A").grid(row=ii+2, column=3, sticky=W)
     Label(root, text="R",bg="#F0B27A").grid(row=ii+2, column=4, sticky=W)
     Label(root, text="W",bg="#F0B27A").grid(row=ii+2, column=5, sticky=W)
+    if(len(Total['scorecard'])==1):
+        ddd = Total['scorecard'][1]['runs']
+        wick = Total['scorecard'][1]['wickets']
+        oo = Total['scorecard'][1]['overs']
+        Label(root, text=ddd+" in "+oo+" for "+wick,bg="#F0B27A").grid(row=ii+1, column=0, sticky=W)
+        
+    else:
+        ddd = Total['scorecard'][0]['runs']
+        wick = Total['scorecard'][0]['wickets']
+        oo = Total['scorecard'][0]['overs']
+        Label(root, text=ddd+" in "+oo+" for "+wick,bg="#F0B27A").grid(row=ii+1, column=0, sticky=W)
+        
+        
+        
+        
     
     for e in range(11,uu+11):
         name = Total['scorecard'][0]['bowlcard'][e-11]['name']
@@ -45,6 +60,8 @@ def scoreb(i):
         Label(root, text=maiden).grid(row=e+11, column=3, sticky=W)
         Label(root, text=runs).grid(row=e+11, column=4, sticky=W)
         Label(root, text=wicket).grid(row=e+11, column=5, sticky=W)
+
+        
        
     #time.sleep(1)
     root.mainloop()
@@ -52,49 +69,56 @@ def scoreb(i):
 
 
 def scoreb2(i):
-    try:
-        root1 = Tk()
-        sco = Cricbuzz()
-        Total = sco.scorecard(i)
-        ii = len(Total['scorecard'][1]['batcard'])
-        Label(root1, text="Batsman",bg="#F0B27A").grid(row=0, column=0, sticky=W)
-        Label(root1, text="Dismissal",bg="#F0B27A").grid(row=0, column=1, sticky=W)
-        Label(root1, text="Runs",bg="#F0B27A").grid(row=0, column=2, sticky=W)
-        Label(root1, text="Balls",bg="#F0B27A").grid(row=0, column=3, sticky=W)
-        for k in range(1,ii+1):        
-            name = Total['scorecard'][1]['batcard'][k-1]['name']
-            diss = Total['scorecard'][1]['batcard'][k-1]['dismissal']
-            run = Total['scorecard'][1]['batcard'][k-1]['runs']
-            ball = Total['scorecard'][1]['batcard'][k-1]['balls']
-            
-            Label(root1, text=name).grid(row=k, column=0, sticky=W)
-            Label(root1, text=diss).grid(row=k, column=1, sticky=W)
-            Label(root1, text=run).grid(row=k, column=2, sticky=W)
-            Label(root1, text=ball).grid(row=k, column=3, sticky=W)
-        uu = len(Total['scorecard'][1]['bowlcard'])
-        Label(root1, text="Bowler",bg="#F0B27A").grid(row=ii+2, column=0, sticky=W)
-        Label(root1, text="O",bg="#F0B27A").grid(row=ii+2, column=2, sticky=W)
-        Label(root1, text="M",bg="#F0B27A").grid(row=ii+2, column=3, sticky=W)
-        Label(root1, text="R",bg="#F0B27A").grid(row=ii+2, column=4, sticky=W)
-        Label(root1, text="W",bg="#F0B27A").grid(row=ii+2, column=5, sticky=W)
+    #try:
+    root1 = Tk()
+    sco = Cricbuzz()
+    Total = sco.scorecard(i)
+    ii = len(Total['scorecard'][1]['batcard'])
+    Label(root1, text="Batsman",bg="#F0B27A").grid(row=0, column=0, sticky=W)
+    Label(root1, text="Dismissal",bg="#F0B27A").grid(row=0, column=1, sticky=W)
+    Label(root1, text="Runs",bg="#F0B27A").grid(row=0, column=2, sticky=W)
+    Label(root1, text="Balls",bg="#F0B27A").grid(row=0, column=3, sticky=W)
+    for k in range(1,ii+1):        
+        name = Total['scorecard'][1]['batcard'][k-1]['name']
+        diss = Total['scorecard'][1]['batcard'][k-1]['dismissal']
+        run = Total['scorecard'][1]['batcard'][k-1]['runs']
+        ball = Total['scorecard'][1]['batcard'][k-1]['balls']
         
-        for e in range(11,uu+11):
-            name = Total['scorecard'][1]['bowlcard'][e-11]['name']
-            over = Total['scorecard'][1]['bowlcard'][e-11]['overs']
-            maiden = Total['scorecard'][1]['bowlcard'][e-11]['maidens']
-            runs = Total['scorecard'][1]['bowlcard'][e-11]['runs']
-            wicket = Total['scorecard'][1]['bowlcard'][e-11]['wickets']
+        Label(root1, text=name).grid(row=k, column=0, sticky=W)
+        Label(root1, text=diss).grid(row=k, column=1, sticky=W)
+        Label(root1, text=run).grid(row=k, column=2, sticky=W)
+        Label(root1, text=ball).grid(row=k, column=3, sticky=W)
+    uu = len(Total['scorecard'][1]['bowlcard'])
+    Label(root1, text="Bowler",bg="#F0B27A").grid(row=ii+2, column=0, sticky=W)
+    Label(root1, text="O",bg="#F0B27A").grid(row=ii+2, column=2, sticky=W)
+    Label(root1, text="M",bg="#F0B27A").grid(row=ii+2, column=3, sticky=W)
+    Label(root1, text="R",bg="#F0B27A").grid(row=ii+2, column=4, sticky=W)
+    Label(root1, text="W",bg="#F0B27A").grid(row=ii+2, column=5, sticky=W)
 
-            Label(root1, text=name).grid(row=e+11, column=0, sticky=W)
-            Label(root1, text=over).grid(row=e+11, column=2, sticky=W)
-            Label(root1, text=maiden).grid(row=e+11, column=3, sticky=W)
-            Label(root1, text=runs).grid(row=e+11, column=4, sticky=W)
-            Label(root1, text=wicket).grid(row=e+11, column=5, sticky=W)
-           
-        #time.sleep(1)                
-        root1.mainloop()
-    except:
-        print('Second Innings is yet to start')
+    ddd = Total['scorecard'][1]['runs']
+    wick = Total['scorecard'][1]['wickets']
+    oo = Total['scorecard'][1]['overs']
+    Label(root1, text=ddd+" in "+oo+" for "+wick,bg="#F0B27A").grid(row=ii+1, column=0, sticky=W)
+    
+    for e in range(12,uu+12):
+        name = Total['scorecard'][1]['bowlcard'][e-12]['name']
+        over = Total['scorecard'][1]['bowlcard'][e-12]['overs']
+        maiden = Total['scorecard'][1]['bowlcard'][e-12]['maidens']
+        runs = Total['scorecard'][1]['bowlcard'][e-12]['runs']
+        wicket = Total['scorecard'][1]['bowlcard'][e-12]['wickets']
+
+        Label(root1, text=name).grid(row=e+11, column=0, sticky=W)
+        Label(root1, text=over).grid(row=e+11, column=2, sticky=W)
+        Label(root1, text=maiden).grid(row=e+11, column=3, sticky=W)
+        Label(root1, text=runs).grid(row=e+11, column=4, sticky=W)
+        Label(root1, text=wicket).grid(row=e+11, column=5, sticky=W)
+
+   
+       
+    #time.sleep(1)                
+    root1.mainloop()
+    #except:
+     #   print('Second Innings is yet to start')
     
     
 def Refresh(h):
@@ -153,8 +177,22 @@ class Match(Batsman, Bowler, Score):
 
                 var6 = "Result: " + Total['matchinfo']['status']
                 Label(root, text=var6, bg="#FDFEFE").grid(row=7, column=0,sticky=W)
+
+                scr = scrolledtext.ScrolledText(root, width=30, height=10, wrap=tk.WORD)
+                scr.grid(row=8,column=0, sticky='WE', columnspan=3)
+                
+                
+
+                
                    
                 root.update()
+
+                ty = Tk()
+                cc = ODI.commentary(self.ID)
+                dd = cc['commentary']
+                for i in  range(len(dd)-1,1,-1):
+                    scr.insert('1.0', dd[i]+"\n \n")
+                ty.close()
 
                 
                 
@@ -168,6 +206,8 @@ class Match(Batsman, Bowler, Score):
         except:
             print("Thank you for using Cricbuzz Widget- Powered by PyCricbuzz")
             
+            
+
             
 
             
