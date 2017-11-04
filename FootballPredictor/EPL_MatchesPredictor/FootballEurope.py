@@ -2,6 +2,7 @@ import math
 import pandas as pd
 from H2H import H2H_Cal
 from form_EPL import Form_Cal
+from Shot import TSS, SSS
 
 
 df = pd.read_csv('C:\\Users\\chinkasoni\\Desktop\\EPL.csv')
@@ -101,7 +102,7 @@ class MatchDetails:
 
     
         
-
+data =[]
 
 class odds(MatchDetails):
 
@@ -118,58 +119,51 @@ class odds(MatchDetails):
         four = foo.hgc()
         five = foo.ags()
         six = foo.oag()
+        
 
         H,A,T=H2H_Cal(self.h,self.a)
         FH,FA = Form_Cal(self.h,self.a)
-
         
-
-        '''
-
-        if(self.h == 'Leicester City'):
-            zero = one/57
-            zero1 = four/57
-        elif(self.h == 'Bournemouth' or self.h == 'Burnley'):
-            zero = one/38
-            zero1 = four/38
-        else:
-            zero = one/95
-            zero1 = four/95
-
-        if(self.a == 'Leicester City'):
-            beta = two/57
-            beta1 = five/57
-        elif(self.a == 'Bournemouth' or self.a == 'Burnley'):
-            beta = two/38
-            beta1 = five/38
-        else:
-            beta = two/95
-            beta1 = five/95
-        '''
+        HSS = TSS(self.h)
+        AS = SSS(self.a)
         
-        HTS = (((one/38)*(two/38))/(three/760))+ FH/15 + H/T
-        ATS =  (((four/38)*(four/38))/(three/760)) + FA/15 + A/T
+        
+        HTS = (((one/38)*(two/38))/(three/760))+ FH/15 + H/T + HSS
+        ATS =  (((four/38)*(four/38))/(three/760)) + FA/15 + A/T + AS
+        
 
         dato = []
         poi = 0
         for i in range(0,6):
             poi = ((math.exp(-HTS))*(math.pow(HTS,i)))/(math.factorial(i)) 
             dato.append(round(poi,4))
+            
 
         daty = []
         poy = 0
         for j in range(0,6):
             poy = ((math.exp(-ATS))*(math.pow(ATS,j)))/(math.factorial(j))
             daty.append(round(poy,4))
-
+            
         #print(dato)
         #print(daty)
-        
         HomeScore = dato.index(max(dato))
         AwayScore = daty.index(max(daty))
-        print(str(HomeScore) + " - " + str(AwayScore))
+        FTS = str(HomeScore) + " - " + str(AwayScore)
+        print(FTS)
+        '''
+        try:
+            fi1 = open("C:\\Users\\chinkasoni\\AppData\\Local\\Programs\\Python\\Python36\\prediction.txt","r")
+            fi2 = fi1.read()
+            
+        except:
+            fi = fi = open("prediction.txt","w")
+        fi = fi = open("prediction.txt","w")
+        fi2 = fi2 + "\n" + FTS
+        fi.write(fi2)
         
-
+        '''
+        
 
         HTS =  (((one/38)*(two/38))/(three/760))
         ATS =  ((four/38)*(four/38))/(three/760)
@@ -188,12 +182,30 @@ class odds(MatchDetails):
             poy = ((math.exp(-ATS))*(math.pow(ATS,j)))/(math.factorial(j))
             daty.append(round(poy,4))
 
+
         #print(dato)
         #print(daty)
-
         HomeScore = dato.index(max(dato))
         AwayScore = daty.index(max(daty))
         print(str(HomeScore) + " - " + str(AwayScore))
+        
+        
+            
+        
+
+
+
+
+        
+        
+        
+        
+        
+        
+        
+                
+                
+
         
             
             
