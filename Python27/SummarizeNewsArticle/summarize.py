@@ -28,11 +28,11 @@ for lines in dh:
 	ll.append(fr)
 	fr=0
 
-#print(data['objects'][0]['title'])
-file_write = open("testfile4.txt","w")
+print(data['objects'][0]['title'])
+
 print("--------------")
 for i in range(0,len(ll)):
 	if(ll[i]>8):
-		file_write.write(dh[i].encode("UTF-8"))
+		print(dh[i])
 
 
