@@ -2,7 +2,7 @@ import math
 import pandas as pd
 from H2H import H2H_Cal
 from form_EPL import Form_Cal
-from Shot import TSS, SSS
+
 
 
 df = pd.read_csv('C:\\Users\\chinkasoni\\Desktop\\EPL.csv')
@@ -17,7 +17,7 @@ division = df.division
 #La Liga 3091(H) 2214(A) 1247 914
 #Ligue 1 2760(H) 2034 (A)
             
-class MatchDetails:
+class MatchDetails_Two:
     
     
     def __init__(self, HomeTeam="", AwayTeam=""):
@@ -71,46 +71,23 @@ class MatchDetails:
         return int(TAGC)
 
     def ohg(self):
-        data = []
-        for i in range(0,len(division)):
-            if(hometeamname[i]==self.HT):
-                data.append(division[i])
-                break
-        if(data[0] == 'EPL'):
-            return int(1173)
-        elif(data[0] == 'Bundesliga'):
-            return int(2493)
-        elif(data[0] == 'La_Liga'):
-            return int(3091)
-        else:
-            return int(2760)
-
+        return int(1173)
+        
     def oag(self):
-        dat = []
-        for i in range(0,len(division)):
-            if(awayteamname[i]==self.AT):
-                dat.append(division[i])
-                break
-        if(dat[0] == 'EPL'):
-            return int(916)
-        elif(dat[0] == 'Bundesliga'):
-            return int(1953)
-        elif(dat[0] == 'La_Liga'):
-            return int(2214)
-        else:
-            return int(2034)
+        return int(916)
+        
 
     
         
 data =[]
 
-class odds(MatchDetails):
+class odds_Two(MatchDetails_Two):
 
     def __init__(self, Hometeam="", Awayteam=""):
         self.h = Hometeam
         self.a = Awayteam
 
-        foo = MatchDetails(self.h, self.a)
+        foo = MatchDetails_Two(self.h, self.a)
 
         one = foo.hgs()
         two = foo.agc()
@@ -124,12 +101,13 @@ class odds(MatchDetails):
         H,A,T=H2H_Cal(self.h,self.a)
         FH,FA = Form_Cal(self.h,self.a)
         
-        HSS = TSS(self.h)
-        AS = SSS(self.a)
+        #print(str(FH) + " / " + str(H) + " / " + str(T))
+        #print(str(FA)+" / "+str(A)+" / "+str(T))
+
         
         
-        HTS = (((one/38)*(two/38))/(three/760))+ FH/15 + H/T + HSS
-        ATS =  (((four/38)*(four/38))/(three/760)) + FA/15 + A/T + AS
+        HTS = (((one/38)*(two/38))/(three/760))+ FH/15 + H/T
+        ATS =  (((four/38)*(five/38))/(six/760)) + FA/15 + A/T 
         
 
         dato = []
@@ -150,23 +128,12 @@ class odds(MatchDetails):
         HomeScore = dato.index(max(dato))
         AwayScore = daty.index(max(daty))
         FTS = str(HomeScore) + " - " + str(AwayScore)
-        print(FTS)
-        '''
-        try:
-            fi1 = open("C:\\Users\\chinkasoni\\AppData\\Local\\Programs\\Python\\Python36\\prediction.txt","r")
-            fi2 = fi1.read()
-            
-        except:
-            fi = fi = open("prediction.txt","w")
-        fi = fi = open("prediction.txt","w")
-        fi2 = fi2 + "\n" + FTS
-        fi.write(fi2)
-        
-        '''
+        print("^^^^^")
+        print(FTS + " **")
         
 
         HTS =  (((one/38)*(two/38))/(three/760))
-        ATS =  ((four/38)*(four/38))/(three/760)
+        ATS =  ((four/38)*(five/38))/(six/760)
 
 
 
@@ -188,6 +155,42 @@ class odds(MatchDetails):
         HomeScore = dato.index(max(dato))
         AwayScore = daty.index(max(daty))
         print(str(HomeScore) + " - " + str(AwayScore))
+        
+        
+            
+        
+
+
+
+
+        
+        
+        
+        
+        
+        
+        
+                
+                
+
+        
+        
+            
+        
+
+
+
+
+        
+        
+        
+        
+        
+        
+        
+                
+                
+
         
         
             
