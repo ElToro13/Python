@@ -1,2 +1,2 @@
-Prediction of EPL 2017-2018 Season /matches Week by Week. I have used data from last two season to make a Score Model that predicts the 
+Prediction of EPL 2017-2018 Season /matches Week by Week. I have used data from last five season to make a Score Model that predicts the 
 score for a particular match and from that information predicts the winner. 
