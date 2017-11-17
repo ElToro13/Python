@@ -2,7 +2,7 @@ import math
 import pandas as pd
 from H2H_LaLiga import H2H_Cal
 from form_LaLiga import Form_Cal
-from Shot_LL import TSS, SSS
+
 
 df = pd.read_csv('C:\\Users\\chinkasoni\\Desktop\\LaLiga.csv')
 hometeamgol = df.homeGoalFT
@@ -70,28 +70,11 @@ class MatchDetails:
         return int(TAGC)
 
     def ohg(self):
-        data = []
-        for i in range(0,len(division)):
-            if(hometeamname[i]==self.HT):
-                data.append(division[i])
-                break
-        if(data[0] == 'EPL'):
-            return int(1173)
-        elif(data[0] == 'Bundesliga'):
-            return int(2493)
-        elif(data[0] == 'La_Liga'):
-            return int(1247)
-        else:
-            return int(2760)
+        return int(1247)
 
     def oag(self):
-        
         return int(914)
         
-
-    
-        
-
 
 class odds(MatchDetails):
 
@@ -112,13 +95,14 @@ class odds(MatchDetails):
 
         H,A,T=H2H_Cal(self.h,self.a)
         FH,FA = Form_Cal(self.h,self.a)
+        
+        if(T == 0):
+            HTS = ((one/38)*(two/38))/(three/760)+ FH/15 
+            ATS =  (((four/38)*(five/38))/(six/760)) + FA/15 
 
-        HSS = TSS(self.h)
-        AS = SSS(self.a)
-        
-        
-        HTS = (((one/38)*(two/38))/(three/760))+ FH/15 + H/T + HSS
-        ATS =  (((four/38)*(four/38))/(three/760)) + FA/15 + A/T + AS
+        else:
+            HTS = ((one/38)*(two/38))/(three/760)+ FH/15 + H/T
+            ATS =  ((four/38)*(five/38))/(six/760) + FA/15 + A/T
 
 
         dato = []
@@ -133,19 +117,13 @@ class odds(MatchDetails):
             poy = ((math.exp(-ATS))*(math.pow(ATS,j)))/(math.factorial(j))
             daty.append(round(poy,4))
 
-        #print(dato)
-        #print(daty)
         
         HomeScore = dato.index(max(dato))
         AwayScore = daty.index(max(daty))
-        print(str(HomeScore) + " - " + str(AwayScore))
+        print(str(HomeScore) + " - " + str(AwayScore)+" **")
         
-
-
-        HTS =  (((one/38)*(two/38))/(three/760))
-        ATS =  ((four/38)*(four/38))/(three/760)
-
-
+        HTS =  ((one/38)*(two/38))/(three/760)
+        ATS =  ((four/38)*(five/38))/(six/760)
 
         dato = []
         poi = 0
@@ -165,6 +143,7 @@ class odds(MatchDetails):
         HomeScore = dato.index(max(dato))
         AwayScore = daty.index(max(daty))
         print(str(HomeScore) + " - " + str(AwayScore))
+
         
             
             
