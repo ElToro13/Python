@@ -128,6 +128,10 @@ class odds_Two(MatchDetails_Two):
         HomeScore = dato.index(max(dato))
         AwayScore = daty.index(max(daty))
         FTS = str(HomeScore) + " - " + str(AwayScore)
+        fff = open("Predictor_Week.txt", "a") 
+        fff.write(self.h+" "+FTS+" "+self.a+"\n")
+        fff.close()
+        FTS = str(HomeScore) + " - " + str(AwayScore)
         print("^^^^^")
         print(FTS + " **")
         
