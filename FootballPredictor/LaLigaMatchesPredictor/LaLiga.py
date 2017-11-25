@@ -120,6 +120,10 @@ class odds(MatchDetails):
         
         HomeScore = dato.index(max(dato))
         AwayScore = daty.index(max(daty))
+        FTS = str(HomeScore) + " - " + str(AwayScore)
+        fff = open("Predictor_Week.txt", "a") 
+        fff.write(self.h+" "+FTS+" "+self.a+"\n")
+        fff.close()
         print(str(HomeScore) + " - " + str(AwayScore)+" **")
         
         HTS =  ((one/38)*(two/38))/(three/760)
