@@ -18,6 +18,7 @@ def download_web_image(url):
     urllib.urlretrieve(url, os.path.join(os.getcwd(), full_name))
     return full_name
 
+# Different Online news articles
 #s = "http://www.thehindu.com/todays-paper/tp-opinion/the-ai-battlefield/article20376166.ece"
 #s = "https://timesofindia.indiatimes.com/india/no-country-can-thrive-without-equal-opportunity-for-half-its-population/articleshow/61827809.cms"
 #s = "http://www.wionews.com/india-news/watch-india-an-inspiration-for-the-world-ivanka-trump-at-ges-2017-25369"
@@ -27,7 +28,7 @@ def download_web_image(url):
 #s = "http://www.hindustantimes.com/business-news/india-gdp-can-grow-by-150bn-if-it-halves-gender-gap-ivanka-trump/story-ch3QRAcwZpCyGMSiZ3SPcO.html"
 s = "http://www.hindustantimes.com/fashion-and-trends/manushi-chhillar-on-her-winning-moment-wish-i-had-given-a-more-lady-like-reaction/story-pCJlLA3yUeoz6QucVVZDPI.html?li_source=LI&li_medium=recommended-for-you"
 s =  urllib.quote_plus(s)
-f = "https://api.diffbot.com/v3/article?token=2aca4b94adb14d3c02619c02a3d22cac&url=" + s
+f = "https://api.diffbot.com/v3/article?token="Your Diffbot API Key"&url=" + s
 
 
 r = requests.get(f)
@@ -58,6 +59,7 @@ print(data['objects'][0]['title'])
 document = Document()
 
 document.add_heading(data['objects'][0]['title'], 0)
+#Checks to see if there is an image in the article. If there is, it will add it to the word document.
 try:
         
         image = (data['objects'][0]['images'][0]['url'])
@@ -83,6 +85,7 @@ print(kk)
 
 document.save('demo.docx')
 file_write.close()
+#This checks whether everthing was properly saved.
 if(os.stat("testfile4.txt").st_size == 0):
         print("Nothing Happened")
 else:
