@@ -25,7 +25,7 @@ class myThread (threading.Thread):
           if cc == 1:
              cap = cv2.VideoCapture(1)
              fourcc = cv2.VideoWriter_fourcc(*'XVID')
-             out = cv2.VideoWriter('output.avi',fourcc, 20.0, (640,480))
+             out = cv2.VideoWriter('F:\\CCTV Footage\\output.avi',fourcc, 20.0, (640,480))
              print("Recording is ON")
              while(cap.isOpened() and cc == 1):
                 ret, frame = cap.read()
@@ -57,10 +57,13 @@ class myThread2 (threading.Thread):
    def run(self):
       print ("Starting " + self.name +"\n")
       while(True):
-          check = requests.get("https://api.thingspeak.com/channels/479406/feeds.json?api_key=FAONR5W0K0WWGE30&results=1")
-          check = json.loads(check.content.decode('utf-8'))
-          global checker
-          checker = int(check["feeds"][0]["field1"])
+         try:
+             check = requests.get("https://api.thingspeak.com/channels/479406/feeds.json?api_key=FAONR5W0K0WWGE30&results=1")
+             check = json.loads(check.content.decode('utf-8'))
+             global checker
+             checker = int(check["feeds"][0]["field1"])
+         except:
+            print("Shit, that server giving fuckAll values again.")
           #print("Thread2: {}".format(checker))
           
 
@@ -74,3 +77,4 @@ thread1.start()
 thread2.start()
 
 print ("Exiting Main Thread\n")
+
