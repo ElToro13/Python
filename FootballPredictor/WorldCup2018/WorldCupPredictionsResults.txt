@@ -103,36 +103,43 @@
 ('Colombia', 'Japan')
 (0, 0)
 {'Japan': -1.806, 'Poland': -1.7399999999999998, 'Senegal': -1.674, 'Colombia': -1.53}
-{'F1': 'Germany', 'F2': 'Mexico', 'G2': 'England', 'G1': 'Belgium', 'H2': 'Senegal', 'E1': 'Brazil', 'H1': 'Colombia', 'A1': 'Uruguay', 'A2': 'Russia', 'B1': 'Spain', 'B2': 'Portugal', 'C2': 'Peru', 'C1': 'France', 'E2': 'Serbia', 'D2': 'Croatia', 'D1': 'Argentina'}
-0
+
+***Group Stage Winners***
+{'F1': 'Germany', 'F2': 'Mexico', 'G2': 'England', 'G1': 'Belgium', 'H2': 'Senegal', 'E1': 'Brazil', 
+'H1': 'Colombia', 'A1': 'Uruguay', 'A2': 'Russia', 'B1': 'Spain', 'B2': 'Portugal', 
+'C2': 'Peru', 'C1': 'France', 'E2': 'Serbia', 'D2': 'Croatia', 'D1': 'Argentina'}
+*************************
+
 ('Uruguay', 'Portugal')
 (1.4304389999070577, 0.6927316796570996)
 Urugual Wins
 ('Russia', 'Spain')
 (1.2055702076051347, 1.5213923342484716)
 Spain Wins
-4
 ('France', 'Croatia')
 (1.6109462780744788, 0.933437830944705)
 France Wins
 ('Peru', 'Argentina')
 (0.418355163038209, 1.919174107123137)
 Argentina Wins
-8
 ('Brazil', 'Mexico')
 (1.8988989476772173, 1.5774599505541416)
 Brazil Wins
 ('Serbia', 'Germany')
 (1.256657971904808, 2.5705105654028007)
 Germany Wins
-12
 ('Belgium', 'Senegal')
 (1.191897402321883, 0.21980450504349586)
 Belgium Wins
 ('England', 'Colombia')
 (1.6164771700426022, 0.7597358233900221)
 England Wins
-{'Q1': 'Uruguay', 'Q3': 'France', 'Q2': 'Spain', 'Q5': 'Brazil', 'Q4': 'Argentina', 'Q7': 'Belgium', 'Q6': 'Germany', 'Q8': 'England'}
+
+***QuaterFinalists***
+{'Q1': 'Uruguay', 'Q3': 'France', 'Q2': 'Spain', 'Q5': 'Brazil', 
+'Q4': 'Argentina', 'Q7': 'Belgium', 'Q6': 'Germany', 'Q8': 'England'}
+*********************
+
 ('Uruguay', 'France')
 (0.98989358264882, 1.4058395029943618)
 France Wins
@@ -145,14 +152,22 @@ Brazil Wins
 ('Germany', 'England')
 (2.0289081534493416, 1.4765470039107207)
 Germany Wins
+
+***SemiFinalists***
 {'S3': 'Brazil', 'S2': 'Argentina', 'S1': 'France', 'S4': 'Germany'}
+*******************
+
 ('France', 'Brazil')
 Brazil Wins
 (1.1663903746313056, 2.4801341667556245)
 ('Argentina', 'Germany')
 Germany Wins
 (1.7115792610478404, 2.0056824036145544)
+
+***Finalists***
 {'F1': 'Brazil', 'F2': 'Germany'}
+***************
+
 ('Brazil', 'Germany')
 (2.663162470835221, 2.696908927256893)
-{'WinningTeam': 'Germany'}
+WinningTeam: Germany
