@@ -23,7 +23,7 @@ class Userdata:
         return d
 
     def SensorWords(self,dato=""):
-        words = ['fuck', 'shit', 'bhenchod', 'madarchod','lode','chutiye','asshole','motherfucker', 'motherfucking', 'fucking', 'Fuck','fucks', 'shits', 'bhenchods', 'madarchods','lodes','chutiyes','assholes','motherfuckers', 'motherfucking', 'fucking', 'Fucks']
+        words = [""] #Enter All the Words that you want to filter out
         data=[]
         listo = dato.split()
         for i in range(0,len(listo)):
@@ -43,7 +43,7 @@ class Userdata:
         return d
 
     def FilterOut(self, datc=""):
-        comma = ['fuck', 'shit', 'bhenchod', 'madarchod','lode','chutiye','asshole','motherfucker', 'motherfucking', 'fucking', 'Fuck','fucks', 'shits', 'bhenchods', 'madarchods','lodes','chutiyes','assholes','motherfuckers', 'motherfucking', 'fucking', 'Fucks']# All the words that will be filter out
+        comma = [##]# All the words that will be filter out
         data = []
         text = datc
         f = text.split()
