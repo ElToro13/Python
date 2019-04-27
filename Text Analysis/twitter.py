@@ -5,10 +5,10 @@ location = geolocator.geocode("Vadodara, Gujarat, India")
 from textblob import TextBlob
 
 # Consumer keys and access tokens, used for OAuth
-consumer_key        = 'E1JNN3IMIh6F6bmsK2BQOGBhP'
-consumer_secret     = 'm6coRZ7eEc4GzybqezZmjPnWRb6FA1MhCUKo0QVuulWyqdWOrk'
-access_token        = '1374602324-IRs1aPkpDUIumTfNcSmoHcmQWjge5IYpoTVnc2y'
-access_token_secret = '263wMQvZ6JJsxtpMAOZAGivIBPgFbvcejYuuKNBJqLgme'
+consumer_key        = ''
+consumer_secret     = ''
+access_token        = ''
+access_token_secret = ''
 
 # OAuth process, using the keys and tokens
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
