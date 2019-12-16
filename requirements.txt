@@ -128,7 +128,7 @@ sklearn==0.0
 slackclient==1.0.9
 SQLAlchemy==1.1.14
 tensorboard==1.7.0
-tensorflow==1.7.0
+tensorflow==1.15.0
 tensorflow-tensorboard==0.4.0rc2
 termcolor==1.1.0
 testpath==0.3.1
