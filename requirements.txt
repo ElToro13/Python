@@ -114,7 +114,7 @@ Quandl==3.2.1
 queuelib==1.4.2
 requests==2.17.3
 requests-oauthlib==0.8.0
-rsa==3.4.2
+rsa==4.1
 ruamel.yaml==0.15.0
 scikit-learn==0.19.1
 scipy==1.0.0
