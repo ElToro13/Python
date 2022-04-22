@@ -97,7 +97,7 @@ PyMsgBox==1.0.6
 pyOpenSSL==17.3.0
 pyowm==2.7.1
 pyparsing==2.2.0
-PyPDF2==1.26.0
+PyPDF2==1.27.5
 pyqtgraph==0.10.0
 PySocks==1.6.7
 python-dateutil==2.6.1
